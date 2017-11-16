@@ -18,6 +18,7 @@ namespace VideoSharpAppliedPortfolio
         private string[] apps;
         private int tagNum;
         ContentParser parser = new ContentParser();
+        private string tag;
         public GForm()
         {
             InitializeComponent();
@@ -33,6 +34,7 @@ namespace VideoSharpAppliedPortfolio
                 Button nextButton = new Button();
                 nextButton.FlatStyle = FlatStyle.Flat;
                 nextButton.Name = apps[i];
+                nextButton.AutoSize = true;
                 nextButton.Text = apps[i];
                 nextButton.Tag = i.ToString();
                 flowLayoutPanel_forButtons.Controls.Add(nextButton);
@@ -48,15 +50,15 @@ namespace VideoSharpAppliedPortfolio
         private void button__Click(object sender, EventArgs e)
         {
             Button b = (Button)sender;
-            string tag = (string)b.Tag;
+            tag = (string)b.Tag;
             tagNum = Int32.Parse(tag);
             GetApp();
         }
 
         private void GetApp()
         {
-            string appName = Directory.GetFiles("apps\\"+apps[tagNum], "*.exe")[0];
-            Process.Start(appName);
+            //get exe file
+            MessageBox.Show(tag);
         }
     }
 }

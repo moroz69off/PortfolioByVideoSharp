@@ -12,8 +12,11 @@ namespace VideoSharpAppliedPortfolio
         public string appPath = Directory.GetCurrentDirectory()+"\\apps";
         public string[] folders;
         public string[] apps;
+        public bool isDir;
          public string[] GetFolders()
         {
+            isDir = Directory.Exists(appPath);
+            if (!isDir)Directory.CreateDirectory(appPath);
              folders = Directory.GetDirectories(appPath);
              for (int i = 0; i < folders.Length; i++)
              {
