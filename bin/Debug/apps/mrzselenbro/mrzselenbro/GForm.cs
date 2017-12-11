@@ -46,9 +46,9 @@ namespace MrzSelenChr
 
             mrzWebElement = mrzBro.FindElement(By.Id("my_email"));
 
-            mrzWebElement.SendKeys("moroz69off@yandex.ru" + // ================================================
+            mrzWebElement.SendKeys("user_e-mail" + // ================================================
                                  OpenQA.Selenium.Keys.Tab + 
-                                           "vjhjp69vjhjp" + // пароль и логин перенести в настройки или конфиги
+                                           "password" + // пароль и логин перенести в настройки или конфиги
                                  OpenQA.Selenium.Keys.Tab + 
                                  OpenQA.Selenium.Keys.Enter);
 
