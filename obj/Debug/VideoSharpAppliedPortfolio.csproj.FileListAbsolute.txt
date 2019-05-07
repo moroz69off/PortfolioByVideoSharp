@@ -1,1 +1,11 @@
 C:\Users\moroz69off\Source\Repos\PortfolioVideoSharp\bin\Debug\VideoSharpAppliedPortfolio.exe.config
+C:\Users\mrz69off\source\repos\PortfolioVideoSharp\bin\Debug\VideoSharpAppliedPortfolio.exe.config
+C:\Users\mrz69off\source\repos\PortfolioVideoSharp\bin\Debug\VideoSharpAppliedPortfolio.exe
+C:\Users\mrz69off\source\repos\PortfolioVideoSharp\bin\Debug\VideoSharpAppliedPortfolio.pdb
+C:\Users\mrz69off\source\repos\PortfolioVideoSharp\obj\Debug\VideoSharpAppliedPortfolio.csprojAssemblyReference.cache
+C:\Users\mrz69off\source\repos\PortfolioVideoSharp\obj\Debug\VideoSharpAppliedPortfolio.GForm.resources
+C:\Users\mrz69off\source\repos\PortfolioVideoSharp\obj\Debug\VideoSharpAppliedPortfolio.Properties.Resources.resources
+C:\Users\mrz69off\source\repos\PortfolioVideoSharp\obj\Debug\VideoSharpAppliedPortfolio.csproj.GenerateResource.cache
+C:\Users\mrz69off\source\repos\PortfolioVideoSharp\obj\Debug\VideoSharpAppliedPortfolio.csproj.CoreCompileInputs.cache
+C:\Users\mrz69off\source\repos\PortfolioVideoSharp\obj\Debug\VideoSharpAppliedPortfolio.exe
+C:\Users\mrz69off\source\repos\PortfolioVideoSharp\obj\Debug\VideoSharpAppliedPortfolio.pdb

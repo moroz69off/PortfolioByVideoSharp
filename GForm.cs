@@ -1,12 +1,16 @@
 ﻿using System;
+using System.IO;
+using System.Text.RegularExpressions;
 using System.Windows.Forms;
+using System.Xml;
+using System.Xml.Linq;
 
 namespace VideoSharpAppliedPortfolio
 {
     public partial class GForm : Form
     {
         private string currAppPath;
-        private string[] apps;
+        public string[] apps;
         private int tagNum;
         ContentParser parser = new ContentParser();
         private string tag;
@@ -15,10 +19,12 @@ namespace VideoSharpAppliedPortfolio
             InitializeComponent();
             currAppPath = parser.appPath;
             apps = parser.GetFolders();
-            CreateFolders();
+            CreateButtons();
         }
-
-        public void CreateFolders()
+        /// <summary>
+        /// Creates buttons-links to project folders
+        /// </summary>
+        public void CreateButtons()
         {
             for (int i = 0; i < apps.Length; i++)
             {
@@ -43,13 +49,17 @@ namespace VideoSharpAppliedPortfolio
             Button b = (Button)sender;
             tag = (string)b.Tag;
             tagNum = Int32.Parse(tag);
-            GetApp();
+            ShowApp(tagNum);
         }
 
-        private void GetApp()
+        private void ShowApp(int tagN)
         {
-            //get exe file
-            MessageBox.Show(tag);
+            //get and start exe
+            string assemblyName = parser.GetAssemlyName(tagN);
+
+            MessageBox.Show(assemblyName+ ".exe");
         }
+
+
     }
 }

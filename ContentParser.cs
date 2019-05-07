@@ -4,6 +4,8 @@ using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
+using System.Xml;
 
 namespace VideoSharpAppliedPortfolio
 {
@@ -13,7 +15,7 @@ namespace VideoSharpAppliedPortfolio
         public string[] folders;
         public string[] apps;
         public bool isDir;
-         public string[] GetFolders()
+        public string[] GetFolders()
         {
             isDir = Directory.Exists(appPath);
             if (!isDir)Directory.CreateDirectory(appPath);
@@ -23,6 +25,37 @@ namespace VideoSharpAppliedPortfolio
                  folders[i] = folders[i].Remove(0, folders[i].IndexOf("apps") + 5);
              }
              return folders;
+        }
+
+        public string GetAssemlyName(int tagN)
+        {
+            apps = GetFolders();
+            string assemblyName="";
+            string projPath = "apps/" + apps[tagN];
+            string[] files = Directory.GetFiles(projPath, "*.csproj");
+            XmlDocument xmlDoc = new XmlDocument();
+            xmlDoc.Load(files[0]);
+            XmlElement root = xmlDoc.DocumentElement;
+            foreach (XmlNode node in root)
+            {
+                if (node.Attributes.Count > 0)
+                {
+                    XmlNode attr = node.Attributes.GetNamedItem("PropertyGroup");
+                    if (attr != null)
+                    {
+                        assemblyName = attr.Value;
+                    }
+                }
+                foreach (XmlNode item in node.ChildNodes)
+                {
+                    if (item.Name == "AssemblyName")
+                    {
+                        assemblyName = item.InnerText;
+                    }
+                }
+            }
+
+            return "assemblyName";
         }
     }
 }
