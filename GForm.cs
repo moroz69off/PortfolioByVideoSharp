@@ -44,6 +44,11 @@ namespace VideoSharpAppliedPortfolio
             Close();
         }
 
+        /// <summary>
+        /// Eny button click
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void button__Click(object sender, EventArgs e)
         {
             Button b = (Button)sender;
@@ -57,7 +62,7 @@ namespace VideoSharpAppliedPortfolio
             //get and start exe
             string assemblyName = parser.GetAssemlyName(tagN);
 
-            MessageBox.Show(assemblyName+ ".exe");
+            MessageBox.Show(assemblyName);
         }
 
 

@@ -31,8 +31,8 @@ namespace VideoSharpAppliedPortfolio
         {
             apps = GetFolders();
             string assemblyName="";
-            string projPath = "apps/" + apps[tagN];
-            string[] files = Directory.GetFiles(projPath, "*.csproj");
+            string projPath = "apps/" + apps[tagN]+ "/" + apps[tagN];
+            string[] files = Directory.GetFiles(projPath, "*.csproj");//csproj file path
             XmlDocument xmlDoc = new XmlDocument();
             xmlDoc.Load(files[0]);
             XmlElement root = xmlDoc.DocumentElement;
@@ -55,7 +55,7 @@ namespace VideoSharpAppliedPortfolio
                 }
             }
 
-            return "assemblyName";
+            return assemblyName;
         }
     }
 }

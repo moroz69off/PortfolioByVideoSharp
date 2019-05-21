@@ -22,9 +22,15 @@
     <UpdatePeriodically>false</UpdatePeriodically>
     <UpdateRequired>false</UpdateRequired>
     <MapFileExtensions>true</MapFileExtensions>
+    <SupportUrl>https://yumor.xyz/support</SupportUrl>
+    <ErrorReportUrl>https://yumor.xyz/bugreport</ErrorReportUrl>
+    <ProductName>MRZPORTFOLIO</ProductName>
+    <PublisherName>moroz69off</PublisherName>
+    <SuiteName>Portfolio</SuiteName>
     <ApplicationRevision>1</ApplicationRevision>
     <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
     <BootstrapperEnabled>true</BootstrapperEnabled>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">

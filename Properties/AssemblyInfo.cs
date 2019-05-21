@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // набора атрибутов. Измените значения этих атрибутов, чтобы изменить сведения,
 // связанные со сборкой.
 [assembly: AssemblyTitle("VideoSharpAppliedPortfolio")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyDescription("Video Sharp Applied Portfolio")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("moroz69off")]
 [assembly: AssemblyProduct("VideoSharpAppliedPortfolio")]
@@ -17,7 +17,7 @@ using System.Runtime.InteropServices;
 // Параметр ComVisible со значением FALSE делает типы в сборке невидимыми 
 // для COM-компонентов.  Если требуется обратиться к типу в этой сборке через 
 // COM, задайте атрибуту ComVisible значение TRUE для этого типа.
-[assembly: ComVisible(false)]
+[assembly: ComVisible(true)]
 
 // Следующий GUID служит для идентификации библиотеки типов, если этот проект будет видимым для COM
 [assembly: Guid("9009cee0-407b-4b66-8369-34e2b3bf839e")]
