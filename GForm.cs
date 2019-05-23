@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics;
 using System.IO;
 using System.Text.RegularExpressions;
 using System.Windows.Forms;
@@ -53,16 +54,19 @@ namespace VideoSharpAppliedPortfolio
         {
             Button b = (Button)sender;
             tag = (string)b.Tag;
-            tagNum = Int32.Parse(tag);
+            tagNum = int.Parse(tag);
             ShowApp(tagNum);
         }
-
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <param name="tagN"></param>
         private void ShowApp(int tagN)
         {
-            //get and start exe
+            //get and start exe file
             string assemblyName = parser.GetAssemlyName(tagN);
-
-            MessageBox.Show(assemblyName);
+            string strStartProcess = parser.appPath + "\\" + parser.apps[tagN] + "\\" + parser.apps[tagN] + "\\bin\\Debug\\" + assemblyName + ".exe";
+            Process.Start(strStartProcess);
         }
 
 

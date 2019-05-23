@@ -43,7 +43,7 @@ namespace VideoSharpAppliedPortfolio
                     XmlNode attr = node.Attributes.GetNamedItem("PropertyGroup");
                     if (attr != null)
                     {
-                        assemblyName = attr.Value;
+                        var Name = attr.Value;
                     }
                 }
                 foreach (XmlNode item in node.ChildNodes)
