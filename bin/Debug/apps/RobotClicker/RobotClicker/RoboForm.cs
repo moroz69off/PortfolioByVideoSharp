@@ -16,5 +16,10 @@ namespace RobotClicker
         {
             InitializeComponent();
         }
+
+        private void ButtonForClick_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show(buttonForClick.Text);
+        }
     }
 }
