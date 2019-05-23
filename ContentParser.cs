@@ -54,7 +54,6 @@ namespace VideoSharpAppliedPortfolio
                     }
                 }
             }
-
             return assemblyName;
         }
     }
