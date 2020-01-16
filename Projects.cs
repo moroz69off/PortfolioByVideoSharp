@@ -13,5 +13,6 @@ namespace VideoSharpAppliedPortfolio
     {
         static ContentParser Parser = new ContentParser();
         string appPath = Parser.appPath;
+        string[] folders = Parser.GetFolders();
     }
 }

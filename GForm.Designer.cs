@@ -107,6 +107,7 @@
             this.Name = "GForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "VideoSharp Portfolio";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.GForm_FormClosing);
             this.tableLayoutPanel.ResumeLayout(false);
             this.tableLayoutPanel.PerformLayout();
             this.ResumeLayout(false);

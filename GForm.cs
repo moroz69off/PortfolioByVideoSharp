@@ -69,6 +69,10 @@ namespace VideoSharpAppliedPortfolio
             Process.Start(strStartProcess);
         }
 
-
+        private void GForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            // спросить: что делать с открытыми образцами приложений (если такие есть)
+            // записать что-то в настройки программы
+        }
     }
 }
