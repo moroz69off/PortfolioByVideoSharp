@@ -73,7 +73,7 @@
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(338, 48);
             this.label1.TabIndex = 2;
-            this.label1.Text = "moroz69off VideoSharp portfolio";
+            this.label1.Text = "moroz69off portfolio";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // button_Exit

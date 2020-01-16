@@ -1,10 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace RobotClicker
+namespace RoboClicker
 {
     static class Program
     {
@@ -16,7 +15,7 @@ namespace RobotClicker
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new RobotClickerForm());
+            Application.Run(new clickerForm());
         }
     }
 }

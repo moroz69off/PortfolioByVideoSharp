@@ -3,28 +3,48 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.28803.352
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "0_VideoSharpAppliedPortfolio", "0_VideoSharpAppliedPortfolio.csproj", "{9381149F-8179-46FE-9029-DF5FEA47A497}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RobotClicker", "bin\Debug\apps\RobotClicker\RobotClicker\RobotClicker.csproj", "{18FEA15C-A39A-45E8-8F02-DAB4714D1FF0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "_VideoSharpAppliedPortfolio", "_VideoSharpAppliedPortfolio.csproj", "{9381149F-8179-46FE-9029-DF5FEA47A497}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Labirint", "bin\Debug\apps\Labirint\Labirint\Labirint.csproj", "{97770C88-E019-4297-AA95-541C43E2F98D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RoboClicker", "bin\Debug\apps\Robot-Clicker\Robot-Clicker\RoboClicker.csproj", "{22AD8C93-DF56-4B1A-9942-5BC5513885D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CamNozBum", "bin\Debug\apps\KNB\KNB\CamNozBum.csproj", "{BD72A876-4ADA-44D3-90AC-0A3E857C3E44}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
+		Debug|x86 = Debug|x86
 		Release|Any CPU = Release|Any CPU
+		Release|x86 = Release|x86
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
 		{9381149F-8179-46FE-9029-DF5FEA47A497}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9381149F-8179-46FE-9029-DF5FEA47A497}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9381149F-8179-46FE-9029-DF5FEA47A497}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{9381149F-8179-46FE-9029-DF5FEA47A497}.Debug|x86.Build.0 = Debug|Any CPU
 		{9381149F-8179-46FE-9029-DF5FEA47A497}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9381149F-8179-46FE-9029-DF5FEA47A497}.Release|Any CPU.Build.0 = Release|Any CPU
-		{18FEA15C-A39A-45E8-8F02-DAB4714D1FF0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{18FEA15C-A39A-45E8-8F02-DAB4714D1FF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{18FEA15C-A39A-45E8-8F02-DAB4714D1FF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{18FEA15C-A39A-45E8-8F02-DAB4714D1FF0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9381149F-8179-46FE-9029-DF5FEA47A497}.Release|x86.ActiveCfg = Release|Any CPU
+		{9381149F-8179-46FE-9029-DF5FEA47A497}.Release|x86.Build.0 = Release|Any CPU
 		{97770C88-E019-4297-AA95-541C43E2F98D}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{97770C88-E019-4297-AA95-541C43E2F98D}.Debug|x86.ActiveCfg = Debug|x86
+		{97770C88-E019-4297-AA95-541C43E2F98D}.Debug|x86.Build.0 = Debug|x86
 		{97770C88-E019-4297-AA95-541C43E2F98D}.Release|Any CPU.ActiveCfg = Release|x86
+		{97770C88-E019-4297-AA95-541C43E2F98D}.Release|x86.ActiveCfg = Release|x86
+		{97770C88-E019-4297-AA95-541C43E2F98D}.Release|x86.Build.0 = Release|x86
+		{22AD8C93-DF56-4B1A-9942-5BC5513885D9}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{22AD8C93-DF56-4B1A-9942-5BC5513885D9}.Debug|x86.ActiveCfg = Debug|x86
+		{22AD8C93-DF56-4B1A-9942-5BC5513885D9}.Debug|x86.Build.0 = Debug|x86
+		{22AD8C93-DF56-4B1A-9942-5BC5513885D9}.Release|Any CPU.ActiveCfg = Release|x86
+		{22AD8C93-DF56-4B1A-9942-5BC5513885D9}.Release|x86.ActiveCfg = Release|x86
+		{22AD8C93-DF56-4B1A-9942-5BC5513885D9}.Release|x86.Build.0 = Release|x86
+		{BD72A876-4ADA-44D3-90AC-0A3E857C3E44}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{BD72A876-4ADA-44D3-90AC-0A3E857C3E44}.Debug|x86.ActiveCfg = Debug|x86
+		{BD72A876-4ADA-44D3-90AC-0A3E857C3E44}.Debug|x86.Build.0 = Debug|x86
+		{BD72A876-4ADA-44D3-90AC-0A3E857C3E44}.Release|Any CPU.ActiveCfg = Release|x86
+		{BD72A876-4ADA-44D3-90AC-0A3E857C3E44}.Release|x86.ActiveCfg = Release|x86
+		{BD72A876-4ADA-44D3-90AC-0A3E857C3E44}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
