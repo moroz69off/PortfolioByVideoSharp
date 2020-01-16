@@ -76,6 +76,7 @@
       <DependentUpon>GForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
+    <Compile Include="Projects.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="GForm.resx">
       <DependentUpon>GForm.cs</DependentUpon>

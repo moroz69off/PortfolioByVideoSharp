@@ -10,7 +10,7 @@ namespace VideoSharpAppliedPortfolio
 {
     public partial class GForm : Form
     {
-        private string currAppPath;
+        private readonly string currAppPath;
         public string[] apps;
         private int tagNum;
         ContentParser parser = new ContentParser();
