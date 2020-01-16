@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "0_VideoSharpAppliedPortfoli
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RobotClicker", "bin\Debug\apps\RobotClicker\RobotClicker\RobotClicker.csproj", "{18FEA15C-A39A-45E8-8F02-DAB4714D1FF0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Labirint", "bin\Debug\apps\Labirint\Labirint\Labirint.csproj", "{3D42ABCC-42A0-469A-901D-C3341AEF95F1}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Labirint", "bin\Debug\apps\Labirint\Labirint\Labirint.csproj", "{97770C88-E019-4297-AA95-541C43E2F98D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -23,10 +23,8 @@ Global
 		{18FEA15C-A39A-45E8-8F02-DAB4714D1FF0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{18FEA15C-A39A-45E8-8F02-DAB4714D1FF0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{18FEA15C-A39A-45E8-8F02-DAB4714D1FF0}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3D42ABCC-42A0-469A-901D-C3341AEF95F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3D42ABCC-42A0-469A-901D-C3341AEF95F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3D42ABCC-42A0-469A-901D-C3341AEF95F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3D42ABCC-42A0-469A-901D-C3341AEF95F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{97770C88-E019-4297-AA95-541C43E2F98D}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{97770C88-E019-4297-AA95-541C43E2F98D}.Release|Any CPU.ActiveCfg = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -51,6 +51,7 @@ namespace VideoSharpAppliedPortfolio
                     if (item.Name == "AssemblyName")
                     {
                         assemblyName = item.InnerText;
+                        return assemblyName;
                     }
                 }
             }
