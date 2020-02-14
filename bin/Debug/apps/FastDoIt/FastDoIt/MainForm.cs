@@ -12,6 +12,7 @@ namespace MrzFastDoIt
         private static NikeProvider NP;
         BindSetting bindSetting;
         DateTime timeOfTask;
+
         System.Timers.Timer timer;
 
         public MainForm()
