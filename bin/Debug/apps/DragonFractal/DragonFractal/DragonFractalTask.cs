@@ -1,7 +1,3 @@
-﻿//// В этом пространстве имен содержатся средства для работы с изображениями. 
-//// Чтобы оно стало доступно, в проект был подключен Reference на сборку System.Drawing.dll
-//using System.Drawing;
-
 using System;
 using System.Drawing;
 
