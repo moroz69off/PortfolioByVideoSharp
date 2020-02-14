@@ -1,6 +1,7 @@
 using OpenQA.Selenium;
 using OpenQA.Selenium.Support.UI;
 using System;
+using System.IO;
 using System.Threading;
 using System.Timers;
 using System.Windows.Forms;
@@ -12,12 +13,12 @@ namespace MrzFastDoIt
         private static NikeProvider NP;
         BindSetting bindSetting;
         DateTime timeOfTask;
-
         System.Timers.Timer timer;
 
         public MainForm()
         {
             InitializeComponent();
+            timeOfTask = DateTime.Now;
             timer = new System.Timers.Timer();
             bindSetting = new BindSetting();
             profiles = bindSetting.GetProfiles();
@@ -115,6 +116,7 @@ namespace MrzFastDoIt
         private static void CreateNewChrome()
         {
             NP = new NikeProvider();
+            File.AppendAllText("program.log", $"chrome current handle: {NP.Driver.CurrentWindowHandle}\n");
             NP.MaximizeChromeWindow();
             NikeProvider.driverService.HideCommandPromptWindow = true;
             NP.Driver.Navigate().GoToUrl("https://www.nike.com/ru/launch/?s=upcoming");
