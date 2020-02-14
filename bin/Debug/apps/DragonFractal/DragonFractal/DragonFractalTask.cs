@@ -1,6 +1,6 @@
 using System;
 using System.Drawing;
-
+//
 namespace Fractals
 {
     internal static class DragonFractalTask
