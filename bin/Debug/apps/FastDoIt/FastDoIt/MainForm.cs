@@ -41,6 +41,7 @@ namespace MrzFastDoIt
 
         private void ButtonStart_Click(object sender, EventArgs e)
         {
+
             CreateNewChrome();
             Autorize(userLoginPrefs);
             WaitModelSelection();

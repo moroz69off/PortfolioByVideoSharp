@@ -35,6 +35,9 @@ namespace Fractals
                 ClientSize = image.Size
             };
 
+            form.Icon = Properties.Resources.DragonIcon;
+            form.ShowIcon = true;
+
             //Добавляем специальный элемент управления PictureBox, который умеет отображать созданное нами изображение.
             form.Controls.Add(new PictureBox
             {

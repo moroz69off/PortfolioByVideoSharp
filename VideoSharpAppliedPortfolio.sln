@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Ruletka", "bin\Debug\apps\R
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FastDoIt", "bin\Debug\apps\FastDoIt\FastDoIt\FastDoIt.csproj", "{D69B0E05-3D66-46F2-B7B7-6EB728E6BBA7}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DragonFractal", "bin\Debug\apps\DragonFractal\DragonFractal\DragonFractal.csproj", "{1BE7005E-6AE9-4587-9FE7-62EE40CE3E4A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -68,6 +70,14 @@ Global
 		{D69B0E05-3D66-46F2-B7B7-6EB728E6BBA7}.Release|Any CPU.Build.0 = Release|Any CPU
 		{D69B0E05-3D66-46F2-B7B7-6EB728E6BBA7}.Release|x86.ActiveCfg = Release|Any CPU
 		{D69B0E05-3D66-46F2-B7B7-6EB728E6BBA7}.Release|x86.Build.0 = Release|Any CPU
+		{1BE7005E-6AE9-4587-9FE7-62EE40CE3E4A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1BE7005E-6AE9-4587-9FE7-62EE40CE3E4A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1BE7005E-6AE9-4587-9FE7-62EE40CE3E4A}.Debug|x86.ActiveCfg = Debug|Any CPU
+		{1BE7005E-6AE9-4587-9FE7-62EE40CE3E4A}.Debug|x86.Build.0 = Debug|Any CPU
+		{1BE7005E-6AE9-4587-9FE7-62EE40CE3E4A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1BE7005E-6AE9-4587-9FE7-62EE40CE3E4A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1BE7005E-6AE9-4587-9FE7-62EE40CE3E4A}.Release|x86.ActiveCfg = Release|Any CPU
+		{1BE7005E-6AE9-4587-9FE7-62EE40CE3E4A}.Release|x86.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
