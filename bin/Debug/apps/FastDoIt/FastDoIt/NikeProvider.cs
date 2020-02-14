@@ -13,9 +13,14 @@ namespace MrzFastDoIt
 {
     class NikeProvider
     {
+        public NikeProvider()
+        {
+
+        }
+
         BindSetting BS;
         static IWebElement frmEl;
-        public IClock clock = new SystemClock();
+        public static IClock clock = new SystemClock();
         public static ChromeOptions chromeOptions = new ChromeOptions();
         public static ChromeDriverService driverService = ChromeDriverService.CreateDefaultService();
         public IWebDriver Driver = new ChromeDriver(driverService, chromeOptions);
@@ -90,7 +95,10 @@ namespace MrzFastDoIt
 
         internal Func<IWebDriver, IWebElement> ElementExists(By locator) { return d => d.FindElement(locator); }
 
-        internal Func<IWebDriver, bool> UrlContains(string fraction) { return (driver) => { return driver.Url.ToLowerInvariant().Contains(fraction.ToLowerInvariant()); }; }
+        internal Func<IWebDriver, bool> UrlContains(string fraction) 
+        { 
+            return (driver) => { return driver.Url.ToLowerInvariant().Contains(fraction.ToLowerInvariant()); }; 
+        }
 
         internal string[] GetModelInfo(string curUrl)
         {
@@ -109,8 +117,8 @@ namespace MrzFastDoIt
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Exception: \n" + ex.Message + "\n" + "StackTrace: \n" + ex.StackTrace + "\nЧто-то пошло не так ...\nЗапустие новую задачу");
-                File.AppendAllText("error.log", "Exception: \n" + ex.Message + "\n" + "StackTrace: \n" + ex.StackTrace);
+                MessageBox.Show($"Exception: \n{ex.Message}\nStackTrace: \n{ex.StackTrace}\nЧто-то пошло не так ...\nЗапустие новую задачу");
+                File.AppendAllText("error.log", $"Exception: \n{ex.Message}\nStackTrace: \n{ex.StackTrace}");
                 Driver.Close();
                 return null;
             }

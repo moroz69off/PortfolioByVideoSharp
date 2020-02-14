@@ -20,9 +20,8 @@ namespace MrzFastDoIt
             timer = new System.Timers.Timer();
             bindSetting = new BindSetting();
             profiles = bindSetting.GetProfiles();
-            DropListIni(profiles);
             acntStr = new string[12];
-            userLoginPrefs = new string[] {"",""};
+            userLoginPrefs = new string[] {"info@yumor.xyz","21225Moroz2020-m1"};
             taskArray = new string[]
             {
                 "https://www.nike.com/ru/launch/t/",
@@ -32,11 +31,6 @@ namespace MrzFastDoIt
                 "&size=",
                 "size"
             };
-        }
-
-        private void DropListIni(string[] profiles)
-        {
-            comboBox_profileSelect.Items.AddRange(profiles);
         }
 
         private void ButtonStart_Click(object sender, EventArgs e)
@@ -58,9 +52,7 @@ namespace MrzFastDoIt
             timer.Interval = interval;
             timer.Enabled = true;
             timer.Elapsed += PushLastButton;
-            timer.Start();
-
-            
+            timer.Start();  
         }
 
         private void PushLastButton(Object source, System.Timers.ElapsedEventArgs e)
@@ -88,19 +80,11 @@ namespace MrzFastDoIt
                 taskArray[4] +
                 taskArray[5];
             NP.Driver.Navigate().GoToUrl(orderStr);
-            userSettings = GetUserPreferences();
-        }
-
-        string[] GetUserPreferences()
-        {
-            cardCsv = textBox_csvInput.Text;//не надо
-            mdlName = textBox_middleName.Text;
-            return new string[] { mdlName, cardCsv };
         }
 
         private void GetSizeModel()
         {
-            sizeMdl = comboBox_sizeSelect.Text.Replace("US ", "");
+            
             int i = sizeMdl.IndexOf('(');
             sizeMdl = sizeMdl.Substring(0, i - 1);
         }
@@ -135,66 +119,6 @@ namespace MrzFastDoIt
             NP.Driver.Navigate().GoToUrl("https://www.nike.com/ru/launch/?s=upcoming");
         }
 
-        private void TextBox_eMail_TextChanged(object sender, EventArgs e)
-        {
-            if (textBox_eMail.Text.Contains(@"@")) userLoginPrefs[0] = textBox_eMail.Text;
-            acntStr[0] = textBox_eMail.Text;
-        }
-
-        private void TextBox_passWord_TextChanged(object sender, EventArgs e)
-        {
-            userLoginPrefs[1] = textBox_passWord.Text;
-            acntStr[1] = textBox_passWord.Text;
-        }
-
-        private void TextBox_name_TextChanged(object sender, EventArgs e)
-        {
-            acntStr[2] = textBox_name.Text;
-        }
-
-        private void TextBox_middleName_TextChanged(object sender, EventArgs e)
-        {
-            mdlName = textBox_middleName.Text;
-            acntStr[3] = textBox_middleName.Text;
-        }
-
-        private void TextBox_surname_TextChanged(object sender, EventArgs e)
-        {
-            acntStr[4] = textBox_surname.Text;
-        }
-
-        private void TextBox_cardNumber_TextChanged(object sender, EventArgs e)
-        {
-            cardNum = textBox_cardNumber.Text;
-            acntStr[5] = textBox_cardNumber.Text;
-        }
-
-        private void TextBox_dateValidMonth_TextChanged(object sender, EventArgs e)
-        {
-            cardVaM = textBox_dateValidMonth.Text;
-            acntStr[6] = textBox_dateValidMonth.Text;
-        }
-
-        private void TextBox_dateValidYear_TextChanged(object sender, EventArgs e)
-        {
-            cardVaY = textBox_dateValidYear.Text;
-            acntStr[7] = textBox_dateValidYear.Text;
-        }
-
-        private void TextBox_csvInput_TextChanged(object sender, EventArgs e)
-        {
-            if (textBox_csvInput.Text.Length == 3) cardCsv = textBox_csvInput.Text;
-            acntStr[8] = textBox_csvInput.Text;
-        }
-
-        private void DateTimePicker_ValueChanged(object sender, EventArgs e)
-        {
-            timeOfTask = dateTimePicker.Value;
-            timerDa = timeOfTask.Date.ToString().Substring(0, 10);
-            timerTa = timeOfTask.TimeOfDay.ToString();
-            acntStr[9] = dateTimePicker.Value.ToString();
-        }
-
         private void button_saveAccount_Click(object sender, EventArgs e)
         {
             string newAccount =
@@ -220,16 +144,6 @@ namespace MrzFastDoIt
             object selectedItem = dropList.SelectedItem;
             string itemText = dropList.GetItemText(selectedItem);
             profileData = bindSetting.GetProfileData(itemText);
-
-            textBox_name.Text           = bindSetting.accountNamee;
-            textBox_eMail.Text          = bindSetting.accountEmail;
-            textBox_passWord.Text       = bindSetting.accountPassw;
-            textBox_surname.Text        = bindSetting.accountSName;
-            textBox_middleName.Text     = bindSetting.accountMName;
-            textBox_cardNumber.Text     = bindSetting.accontCrdNum;
-            textBox_dateValidMonth.Text = bindSetting.cardMonVdate;
-            textBox_dateValidYear.Text  = bindSetting.cardYeaVdate;
-            textBox_csvInput.Text       = bindSetting.accontCrdCsv;
         }
 
         private void comboBox_sizeSelect_SelectionChangeCommitted(object sender, EventArgs e)
@@ -237,17 +151,7 @@ namespace MrzFastDoIt
 
         }
 
-        private string cardCsv;
-        private string releasD;
-        private string releasT;
-        private string timerDa;
-        private string timerTa;
-        private string cardNum;
-        private string cardVaY;
-        private string cardVaM;
         private string sizeMdl;
-        private string mdlName;
-        private string ordrStr;
         private string[] acntStr;
         private string[] userLoginPrefs;
         private string[] profiles;
