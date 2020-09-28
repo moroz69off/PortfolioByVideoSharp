@@ -46,7 +46,7 @@ namespace VideoSharpAppliedPortfolio
         }
 
         /// <summary>
-        /// Eny button click
+        /// Eny button click event
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
@@ -57,15 +57,16 @@ namespace VideoSharpAppliedPortfolio
             tagNum = int.Parse(tag);
             ShowApp(tagNum);
         }
-        ///// <summary>
-        /// 
+
+        /// <summary>
+        /// Launch project application
         /// </summary>
         /// <param name="tagN"></param>
         private void ShowApp(int tagN)
         {
             //get and start exe file
             string assemblyName = parser.GetAssemlyName(tagN);
-            string strStartProcess = parser.appPath + "\\" + parser.apps[tagN] + "\\" + parser.apps[tagN] + "\\bin\\Debug\\" + assemblyName + ".exe";
+            string strStartProcess = currAppPath + "\\" + parser.apps[tagN] + "\\" + parser.apps[tagN] + "\\bin\\Debug\\" + assemblyName + ".exe";
             Process.Start(strStartProcess);
         }
 

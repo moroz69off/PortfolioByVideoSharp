@@ -15,6 +15,11 @@ namespace VideoSharpAppliedPortfolio
         public string[] folders;
         public string[] apps;
         public bool isDir;
+
+        /// <summary>
+        /// Gets folders with portfolio projects
+        /// </summary>
+        /// <returns>string folders</returns>
         public string[] GetFolders()
         {
             isDir = Directory.Exists(appPath);
@@ -27,6 +32,11 @@ namespace VideoSharpAppliedPortfolio
              return folders;
         }
 
+        /// <summary>
+        /// Gets assembly name by index from project list
+        /// </summary>
+        /// <param name="tagN">index of project in project list</param>
+        /// <returns>string assembly name</returns>
         public string GetAssemlyName(int tagN)
         {
             apps = GetFolders();
