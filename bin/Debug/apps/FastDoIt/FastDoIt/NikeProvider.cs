@@ -23,6 +23,7 @@ namespace MrzFastDoIt
         public static IClock clock = new SystemClock();
         public static ChromeOptions chromeOptions = new ChromeOptions();
         public static ChromeDriverService driverService = ChromeDriverService.CreateDefaultService();
+        // нужно проверить: поддерживается ли драйвером версия хрома. (если хром обновляется, а драйвер устарел, то скачать новый драйвер(наверное))
         public IWebDriver Driver = new ChromeDriver(driverService, chromeOptions);
 
         public void MaximizeChromeWindow()
