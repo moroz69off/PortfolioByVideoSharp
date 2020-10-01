@@ -23,25 +23,24 @@ namespace MRZVideoTr
         static bool done = false;
         static bool speechOn = true;
         static SpeechSynthesizer SS;
-        static SpeechRecognitionEngine SRE;
+        static SpeechRecognitionEngine SR;
 
         static void Main(string[] args)
         {
             Console.Title = "MRZVideoTr";
-            Console.WriteLine("Hello, World");
 
-            SS = new SpeechSynthesizer(); 
-            SRE = new SpeechRecognitionEngine();
+            SS = new SpeechSynthesizer();
+            SR = new SpeechRecognitionEngine();
 
             appPath = Environment.CurrentDirectory;
 
-            StreamReader SR = new StreamReader(appPath + "/01-01-GET-STARTED.mp4.aac");
+            StreamReader sr = new StreamReader(appPath + "/01-01-GET-STARTED.mp4.aac");
 
-            SRE.SetInputToAudioStream(SR.BaseStream, new SpeechAudioFormatInfo(44000, AudioBitsPerSample.Sixteen, AudioChannel.Stereo));
+         
 
             pathToVideo = "D:/Cubebrush - Dragon Knight - Fantasy character full course (2017)/01/01-01-GET-STARTED.mp4";
 
-            char[] c = new char[] { '/', '\\' };
+            char[] c = new char[2] { '/', '\\' };
             int videoNameStartIndex = pathToVideo.LastIndexOfAny(c) + 1;
             videoName = pathToVideo.Substring(videoNameStartIndex);
 
@@ -66,8 +65,8 @@ namespace MRZVideoTr
                 return;
             }
 
-            //Process i = Process.Start("ffmpeg.exe", ffArgs);
-            //int processID = i.Id;
+            Process i = Process.Start("ffmpeg.exe", ffArgs);
+            int processID = i.Id;
 
             GetTextFromSpeechFile(videoName + ".aac");
 
@@ -79,8 +78,26 @@ namespace MRZVideoTr
         private static void GetTextFromSpeechFile(string speeStr)
         {
             Console.WriteLine(speeStr + " to text...");
-          //SS.SetOutputToWaveFile("Скороговорка.wav", new SpeechAudioFormatInfo(44000, AudioBitsPerSample.Sixteen, AudioChannel.Mono));
-            SS.SpeakAsync("тридцать три корабля лавировали, лавировали, лавировали, лавировали, лавировали, лавировали, лавировали, лавировали, лавировали, лавировали, лавировали, лавировали, лавировали, лавировали, лавировали, лавировали, лавировали, лавировали");
+            TaskCompletionSource<int> stopRecognition = new TaskCompletionSource<int>();
+
+            SR.RecognizeCompleted += (s, e) => { Console.WriteLine($"RECOGNIZING: Text={e.Result.Text}"); };
+
+            AudioState AudioState =SR.AudioState;
+            if (AudioState== AudioState.Stopped)
+            {
+                SR.SetInputToWaveFile(videoName + ".aac");
+                SR.SpeechRecognized += SR_SpeechRecognized;
+
+                SR.RecognizeAsync(RecognizeMode.Single);
+            }
+        }
+
+        private static void SR_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
+        {
+            string txt = e.Result.Text;
+            float confidence = e.Result.Confidence;
+            Console.WriteLine("\nRecognized: " + txt);
+            if (confidence < 0.60) return;
         }
     }
 }
