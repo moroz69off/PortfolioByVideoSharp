@@ -21,8 +21,8 @@ namespace MRZVideoTr
         static string pathToVideo;
         static string resultText;
         private static string videoName;
-        static bool done = false;
-        static bool speechOn = true;
+      //static bool done = false;
+      //static bool speechOn = true;
         static SpeechSynthesizer SS;
         static SpeechRecognitionEngine SR;
         static List<string> RTextLines;
@@ -44,18 +44,11 @@ namespace MRZVideoTr
             videoName = GetVideoName(pathToVideo);
 
             MediaFoundationReader MFReader = new MediaFoundationReader(pathToVideo);
+            var WFormat = new WaveFormat(MFReader.WaveFormat.SampleRate, MFReader.WaveFormat.Channels);
+            ResamplerDmoStream RDStream = new ResamplerDmoStream( MFReader, WFormat);
 
-            ResamplerDmoStream RDStream = new ResamplerDmoStream(
-                MFReader, 
-                new WaveFormat(MFReader.WaveFormat.SampleRate, MFReader.WaveFormat.Channels));
-
-            using(WaveFileWriter WFWriter = new WaveFileWriter(videoName + ".wav", MFReader.WaveFormat))
-            {
-                MFReader.CopyTo(WFWriter);
-            }
-            
-
-            
+            using(WaveFileWriter WFWriter = new WaveFileWriter(videoName + ".wav", MFReader.WaveFormat)) 
+            { MFReader.CopyTo(WFWriter); }
             //ffArgs = " -i \"" + pathToVideo + "\" -c:a copy " + videoName + ".aac";
 
             //// потребуется ffmpeg.exe
@@ -79,11 +72,7 @@ namespace MRZVideoTr
 
             //Process i = Process.Start("ffmpeg.exe", ffArgs);
             //int processID = i.Id;
-
-
-            GetTextFromSpeechFile(videoName + ".aac");
-
-            Console.WriteLine("Press \"Enter\" key, user!");
+            GetTextFromSpeechFile(videoName + ".wav");
 
             Console.ReadLine();
         }
@@ -110,9 +99,33 @@ namespace MRZVideoTr
             {
                 SR.SetInputToWaveFile(videoName + ".wav");
                 SR.SpeechRecognized += SR_SpeechRecognized;
-                string topic = "grammar:dictation";
-                DictationGrammar dg = new DictationGrammar(topic);
-                SR.LoadGrammar(dg);
+
+                // Create a default dictation grammar.  
+                DictationGrammar DefaultDictationGrammar = new DictationGrammar();
+                DefaultDictationGrammar.Name = "DefaultDictation";
+                DefaultDictationGrammar.Enabled = true;
+
+                // Create the spelling dictation grammar.  
+                DictationGrammar SpellingDictationGrammar = new DictationGrammar("grammar:dictation#spelling");
+                SpellingDictationGrammar.Name = "SpellingDictation";
+                SpellingDictationGrammar.Enabled = true;
+
+                // Create the question dictation grammar.  
+                DictationGrammar M3DDictationGrammar = new DictationGrammar("grammar:dictation");
+                M3DDictationGrammar.Name = "M3Ddictation";
+                M3DDictationGrammar.Enabled = true;
+
+                // Create a SpeechRecognitionEngine object and add the grammars to it.  
+                SR.LoadGrammar(DefaultDictationGrammar);
+                SR.LoadGrammar(SpellingDictationGrammar);
+                SR.LoadGrammar(M3DDictationGrammar);
+
+                // Add a context to M3DDictationGrammar.  
+                M3DDictationGrammar.SetDictationContext("model", null);
+
+                //string topic = "grammar:dictation";
+                //DictationGrammar dg = new DictationGrammar(topic);
+                //SR.LoadGrammar(dg);
                 SR.RecognizeAsync(RecognizeMode.Multiple);
             }
         }
