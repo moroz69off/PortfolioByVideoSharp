@@ -36,17 +36,16 @@ namespace MRZVideoTr
             var ci = CultureInfo.GetCultures(CultureTypes.InstalledWin32Cultures);
             var ciRu = ci[328];
 
-            CultureInfo myCIintl = new CultureInfo("es-ES", false);
+            CultureInfo CIintl = new CultureInfo("en-EN", false);
 
-            SR = new SpeechRecognitionEngine();
-
+            SR = new SpeechRecognitionEngine(CIintl);
             RTextLines = new List<string>();
 
             appPath = Environment.CurrentDirectory;
 
             // StreamReader sr = new StreamReader(appPath + "/01-01-GET-STARTED.mp4.aac");
 
-            pathToVideo = @"C:\Users\moroz69off\Videos\Spinning Levers - How A Transmission Works (1936).mp4";
+            pathToVideo = @"C:\Users\moroz69off\Videos\Английский язык - аудирование - восприятие на слух (часть 5).mp4";
             videoName = GetVideoName(pathToVideo);
 
             MediaFoundationReader MFReader = new MediaFoundationReader(pathToVideo);
@@ -55,16 +54,14 @@ namespace MRZVideoTr
 
             using(WaveFileWriter WFWriter = new WaveFileWriter(videoName + ".wav", MFReader.WaveFormat)) 
             { MFReader.CopyTo(WFWriter); }
-            //ffArgs = " -i \"" + pathToVideo + "\" -c:a copy " + videoName + ".aac";
 
+            //ffArgs = " -i \"" + pathToVideo + "\" -c:a copy " + videoName + ".aac";
             //// потребуется ffmpeg.exe
             ////        Links
             //// https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-full.zip
             //// https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-essentials.zip
             //// https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-full-shared.zip
-
             //bool isFF = File.Exists(appPath + "\\ffmpeg.exe");
-
             //if (!isFF)
             //{
             //    Console.WriteLine(
@@ -75,9 +72,9 @@ namespace MRZVideoTr
             //    Console.ReadLine();
             //    return;
             //}
-
             //Process i = Process.Start("ffmpeg.exe", ffArgs);
             //int processID = i.Id;
+            
             GetTextFromSpeechFile(videoName + ".wav");
 
             Console.ReadLine();
@@ -124,7 +121,7 @@ namespace MRZVideoTr
                 // Create a SpeechRecognitionEngine object and add the grammars to it.  
                 SR.LoadGrammar(DefaultDictationGrammar);
                 SR.LoadGrammar(SpellingDictationGrammar);
-                SR.LoadGrammar(M3DDictationGrammar);
+             // SR.LoadGrammar(M3DDictationGrammar);
 
                 // Add a context to M3DDictationGrammar.  
              // M3DDictationGrammar.SetDictationContext("polygon", "model");// ?????????
