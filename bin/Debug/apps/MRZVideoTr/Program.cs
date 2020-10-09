@@ -32,7 +32,13 @@ namespace MRZVideoTr
             Console.Title = "MRZVideoTr";
 
             SS = new SpeechSynthesizer();
-            SR = new SpeechRecognitionEngine(new CultureInfo("en-EN"));
+            CultureInfo cultureInfo = new CultureInfo(25);
+            var ci = CultureInfo.GetCultures(CultureTypes.InstalledWin32Cultures);
+            var ciRu = ci[328];
+
+            CultureInfo myCIintl = new CultureInfo("es-ES", false);
+
+            SR = new SpeechRecognitionEngine();
 
             RTextLines = new List<string>();
 
@@ -40,7 +46,7 @@ namespace MRZVideoTr
 
             // StreamReader sr = new StreamReader(appPath + "/01-01-GET-STARTED.mp4.aac");
 
-            pathToVideo = @"C:\Users\moroz69off\OneDrive\MRZVS\Portfolio\bin\Debug\apps\MRZVideoTr\bin\Debug\01-Files-overview-2.mp4";
+            pathToVideo = @"C:\Users\moroz69off\Videos\Spinning Levers - How A Transmission Works (1936).mp4";
             videoName = GetVideoName(pathToVideo);
 
             MediaFoundationReader MFReader = new MediaFoundationReader(pathToVideo);
@@ -111,7 +117,7 @@ namespace MRZVideoTr
                 SpellingDictationGrammar.Enabled = true;
 
                 // Create the question dictation grammar.  
-                DictationGrammar M3DDictationGrammar = new DictationGrammar("grammar:dictation");
+                DictationGrammar M3DDictationGrammar = new DictationGrammar("grammar:dictation#m3dict");
                 M3DDictationGrammar.Name = "M3Ddictation";
                 M3DDictationGrammar.Enabled = true;
 
@@ -121,11 +127,8 @@ namespace MRZVideoTr
                 SR.LoadGrammar(M3DDictationGrammar);
 
                 // Add a context to M3DDictationGrammar.  
-                M3DDictationGrammar.SetDictationContext("model", null);
+             // M3DDictationGrammar.SetDictationContext("polygon", "model");// ?????????
 
-                //string topic = "grammar:dictation";
-                //DictationGrammar dg = new DictationGrammar(topic);
-                //SR.LoadGrammar(dg);
                 SR.RecognizeAsync(RecognizeMode.Multiple);
             }
         }
