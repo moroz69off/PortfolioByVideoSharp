@@ -7,10 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
-using System.Speech;
-using System.Speech.AudioFormat;
-using System.Speech.Recognition;
-using System.Speech.Synthesis;
+
 using NAudio.Wave;
 
 namespace MRZVideoTr
@@ -23,33 +20,27 @@ namespace MRZVideoTr
         private static string videoName;
       //static bool done = false;
       //static bool speechOn = true;
-        static SpeechSynthesizer SS;
-        static SpeechRecognitionEngine SR;
         static List<string> RTextLines;
 
         static void Main(string[] args)
         {
             Console.Title = "MRZVideoTr";
 
-            SS = new SpeechSynthesizer();
             CultureInfo cultureInfo = new CultureInfo(25);
             var ci = CultureInfo.GetCultures(CultureTypes.InstalledWin32Cultures);
             var ciRu = ci[328];
 
             CultureInfo CIintl = new CultureInfo("en-EN", false);
 
-            SR = new SpeechRecognitionEngine(CIintl);
             RTextLines = new List<string>();
 
             appPath = Environment.CurrentDirectory;
 
-            // StreamReader sr = new StreamReader(appPath + "/01-01-GET-STARTED.mp4.aac");
-
-            pathToVideo = @"C:\Users\moroz69off\Videos\Английский язык - аудирование - восприятие на слух (часть 5).mp4";
+            pathToVideo = @"01-Files-overview-2.mp4";
             videoName = GetVideoName(pathToVideo);
 
             MediaFoundationReader MFReader = new MediaFoundationReader(pathToVideo);
-            var WFormat = new WaveFormat(MFReader.WaveFormat.SampleRate, MFReader.WaveFormat.Channels);
+            WaveFormat WFormat = new WaveFormat(MFReader.WaveFormat.SampleRate, MFReader.WaveFormat.Channels);
             ResamplerDmoStream RDStream = new ResamplerDmoStream( MFReader, WFormat);
 
             using(WaveFileWriter WFWriter = new WaveFileWriter(videoName + ".wav", MFReader.WaveFormat)) 
@@ -133,17 +124,6 @@ namespace MRZVideoTr
         private static void SpeechFromRText()
         {
             foreach (string line in RTextLines) { resultText += ". " + line; }
-            SS.SetOutputToDefaultAudioDevice();
-            SS.Speak(resultText);
-        }
-
-        private static void SR_SpeechRecognized(object sender, SpeechRecognizedEventArgs e)
-        {
-            string txt = e.Result.Text;
-            float confidence = e.Result.Confidence;
-            Console.WriteLine("\nRecognized: " + txt);
-            RTextLines.Add(txt);
-            if (confidence < 0.60) return;
         }
     }
 }
