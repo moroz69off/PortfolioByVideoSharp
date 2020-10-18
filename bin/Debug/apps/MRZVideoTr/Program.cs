@@ -13,12 +13,13 @@ using SYS_SPAF = System.Speech.AudioFormat;
 using SYS_SPRC = System.Speech.Recognition;
 using SYS_SPST = System.Speech.Synthesis;
 
-using MS_SP   =  Microsoft.Speech;
-using MS_SPAF =  Microsoft.Speech.AudioFormat;
-using MS_SPRC =  Microsoft.Speech.Recognition;
+using MS_SP   = Microsoft.Speech;
+using MS_SPAF = Microsoft.Speech.AudioFormat;
+using MS_SPRC = Microsoft.Speech.Recognition;
 using MS_SPST = Microsoft.Speech.Text;
 
 using NAudio.Wave;
+using Microsoft.Speech.Recognition;
 
 namespace MRZVideoTr
 {
@@ -28,21 +29,24 @@ namespace MRZVideoTr
         static string pathToVideo;
         static string resultText;
         private static string videoName;
-      //static bool done = false;
-      //static bool speechOn = true;
+        static bool done = false;
+        static bool speechOn = true;
         static List<string> RTextLines;
 
         static void Main(string[] args)
         {
             Console.Title = "MRZVideoTr";
-            var ci = CultureInfo.GetCultures(CultureTypes.InstalledWin32Cultures);
-            var ciRu = ci[328];
+
+            CultureInfo[] ci        = CultureInfo.GetCultures(CultureTypes.InstalledWin32Cultures);
+            CultureInfo ciRu      = ci[311];
+            CultureInfo ciEn      = CultureInfo.GetCultureInfo("en-EN");
+            CultureInfo ciCurrent = CultureInfo.CurrentCulture;
 
             RTextLines = new List<string>();
 
             appPath = Environment.CurrentDirectory;
 
-            pathToVideo = @"01-Files-overview-2.mp4";
+            pathToVideo = @"D:\Cubebrush - Dragon Knight - Fantasy character full course (2017)\01\01-02-SCULPTING-TOOLS.mp4";
             videoName = GetVideoName(pathToVideo);
 
             MediaFoundationReader MFReader = new MediaFoundationReader(pathToVideo);
@@ -91,6 +95,8 @@ namespace MRZVideoTr
         private static void GetTextFromSpeechFile(string speeStr)
         {
             Console.WriteLine(speeStr + " to text...");
+
+            Console.WriteLine();
         }
 
         private static void SpeechFromRText()
