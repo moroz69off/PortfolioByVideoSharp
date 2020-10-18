@@ -8,6 +8,16 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
 
+using SYS_SP   = System.Speech;
+using SYS_SPAF = System.Speech.AudioFormat;
+using SYS_SPRC = System.Speech.Recognition;
+using SYS_SPST = System.Speech.Synthesis;
+
+using MS_SP   =  Microsoft.Speech;
+using MS_SPAF =  Microsoft.Speech.AudioFormat;
+using MS_SPRC =  Microsoft.Speech.Recognition;
+using MS_SPST = Microsoft.Speech.Text;
+
 using NAudio.Wave;
 
 namespace MRZVideoTr
@@ -25,12 +35,8 @@ namespace MRZVideoTr
         static void Main(string[] args)
         {
             Console.Title = "MRZVideoTr";
-
-            CultureInfo cultureInfo = new CultureInfo(25);
             var ci = CultureInfo.GetCultures(CultureTypes.InstalledWin32Cultures);
             var ciRu = ci[328];
-
-            CultureInfo CIintl = new CultureInfo("en-EN", false);
 
             RTextLines = new List<string>();
 
@@ -85,40 +91,6 @@ namespace MRZVideoTr
         private static void GetTextFromSpeechFile(string speeStr)
         {
             Console.WriteLine(speeStr + " to text...");
-
-            SR.RecognizeCompleted += (s, e) => { SpeechFromRText(); };
-
-            AudioState AudioState =SR.AudioState;
-            if (AudioState== AudioState.Stopped)
-            {
-                SR.SetInputToWaveFile(videoName + ".wav");
-                SR.SpeechRecognized += SR_SpeechRecognized;
-
-                // Create a default dictation grammar.  
-                DictationGrammar DefaultDictationGrammar = new DictationGrammar();
-                DefaultDictationGrammar.Name = "DefaultDictation";
-                DefaultDictationGrammar.Enabled = true;
-
-                // Create the spelling dictation grammar.  
-                DictationGrammar SpellingDictationGrammar = new DictationGrammar("grammar:dictation#spelling");
-                SpellingDictationGrammar.Name = "SpellingDictation";
-                SpellingDictationGrammar.Enabled = true;
-
-                // Create the question dictation grammar.  
-                DictationGrammar M3DDictationGrammar = new DictationGrammar("grammar:dictation#m3dict");
-                M3DDictationGrammar.Name = "M3Ddictation";
-                M3DDictationGrammar.Enabled = true;
-
-                // Create a SpeechRecognitionEngine object and add the grammars to it.  
-                SR.LoadGrammar(DefaultDictationGrammar);
-                SR.LoadGrammar(SpellingDictationGrammar);
-             // SR.LoadGrammar(M3DDictationGrammar);
-
-                // Add a context to M3DDictationGrammar.  
-             // M3DDictationGrammar.SetDictationContext("polygon", "model");// ?????????
-
-                SR.RecognizeAsync(RecognizeMode.Multiple);
-            }
         }
 
         private static void SpeechFromRText()
