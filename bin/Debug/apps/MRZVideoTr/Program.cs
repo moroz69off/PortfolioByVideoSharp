@@ -25,6 +25,8 @@ namespace MRZVideoTr
 {
     class Program
     {
+        static int samplingFrequency = 44100000; // Temporarily, there will be GetSampling (audio);
+
         static string appPath;
         static string pathToVideo;
         static string resultText;
@@ -32,6 +34,9 @@ namespace MRZVideoTr
         static bool done = false;
         static bool speechOn = true;
         static List<string> RTextLines;
+        private static ResamplerDmoStream RDStream;
+        static WaveFormat WFormat;
+        static MediaFoundationReader MFReader;
 
         static void Main(string[] args)
         {
@@ -46,55 +51,45 @@ namespace MRZVideoTr
 
             appPath = Environment.CurrentDirectory;
 
-            pathToVideo = @"D:\Cubebrush - Dragon Knight - Fantasy character full course (2017)\01\01-02-SCULPTING-TOOLS.mp4";
+            pathToVideo = @"overview-2.mp4";
             videoName = GetVideoName(pathToVideo);
 
-            MediaFoundationReader MFReader = new MediaFoundationReader(pathToVideo);
-            WaveFormat WFormat = new WaveFormat(MFReader.WaveFormat.SampleRate, MFReader.WaveFormat.Channels);
-            ResamplerDmoStream RDStream = new ResamplerDmoStream( MFReader, WFormat);
+            MFReader = new MediaFoundationReader(pathToVideo);
+            WFormat = new WaveFormat(MFReader.WaveFormat.SampleRate, MFReader.WaveFormat.Channels);
+            RDStream = new ResamplerDmoStream( MFReader, WFormat);
 
-            using(WaveFileWriter WFWriter = new WaveFileWriter(videoName + ".wav", MFReader.WaveFormat)) 
+            string audioName = videoName + ".wav";
+
+            using (WaveFileWriter WFWriter = new WaveFileWriter(audioName, MFReader.WaveFormat)) 
             { MFReader.CopyTo(WFWriter); }
 
-            //ffArgs = " -i \"" + pathToVideo + "\" -c:a copy " + videoName + ".aac";
-            //// потребуется ffmpeg.exe
-            ////        Links
-            //// https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-full.zip
-            //// https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-essentials.zip
-            //// https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-full-shared.zip
-            //bool isFF = File.Exists(appPath + "\\ffmpeg.exe");
-            //if (!isFF)
-            //{
-            //    Console.WriteLine(
-            //        "Need ffmpeg.exe\nHe is not there...\n"+
-            //        "Download here:\n"+
-            //        "https://www.gyan.dev/ffmpeg/builds/ffmpeg-release-full.zip");
-            //    Console.WriteLine("For exit press \"Enter\" key");
-            //    Console.ReadLine();
-            //    return;
-            //}
-            //Process i = Process.Start("ffmpeg.exe", ffArgs);
-            //int processID = i.Id;
-            
-            GetTextFromSpeechFile(videoName + ".wav");
+            samplingFrequency = GetSampling(audioName);
+
+            GetTextFromSpeechFile(audioName);
 
             Console.ReadLine();
         }
+
         /// <summary>
-        /// Обрезает весь путь к файлу и получает только имя файла с расширением
+        /// Получает величину дискретизации аудио потока
+        /// </summary>
+        /// <param name="audio">Строка</param>
+        /// <returns>int SampleRate</returns>
+        private static int GetSampling(string audio) => 
+            RDStream.WaveFormat.SampleRate;
+
+        /// <summary>
+        /// получает имя файла с расширением
         /// </summary>
         /// <param name="pathToVideo"></param>
-        /// <returns>string video (file) name (with ext)</returns>
-        private static string GetVideoName(string pathToVideo)
-        {
-            char[] c = new char[2] { '/', '\\' };
-            int videoNameStartIndex = pathToVideo.LastIndexOfAny(c) + 1;
-            return pathToVideo.Substring(videoNameStartIndex);
-        }
+        /// <returns>string video file name (with ext)</returns>
+        private static string GetVideoName(string pathToVideo) => 
+            pathToVideo.Substring(pathToVideo.LastIndexOfAny(new char[] { '/', '\\' }) + 1);
 
         private static void GetTextFromSpeechFile(string speeStr)
         {
             Console.WriteLine(speeStr + " to text...");
+            // Recognition service -
 
             Console.WriteLine();
         }
@@ -105,3 +100,4 @@ namespace MRZVideoTr
         }
     }
 }
+// "overview-2.mp4"
