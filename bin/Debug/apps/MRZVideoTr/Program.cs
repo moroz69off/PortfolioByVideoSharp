@@ -42,7 +42,7 @@ namespace MRZVideoTr
         {
             Console.Title = "MRZVideoTr";
 
-            CultureInfo[] ci        = CultureInfo.GetCultures(CultureTypes.InstalledWin32Cultures);
+            CultureInfo[] ci      = CultureInfo.GetCultures(CultureTypes.InstalledWin32Cultures);
             CultureInfo ciRu      = ci[311];
             CultureInfo ciEn      = CultureInfo.GetCultureInfo("en-EN");
             CultureInfo ciCurrent = CultureInfo.CurrentCulture;
