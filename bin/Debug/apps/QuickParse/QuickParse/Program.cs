@@ -1,5 +1,9 @@
 ﻿using System;
-
+using Algorithms;
+using CMDLine;
+using TI;
+using TI.Declarator;
+using TI.Declarator.ParserCommon;
 
 namespace QuickParse
 {
@@ -14,7 +18,7 @@ namespace QuickParse
 
     public interface IQDoc
     {
-        string Path { get; protected set; }
+        string Path { get; set; }
 
     }
 }
