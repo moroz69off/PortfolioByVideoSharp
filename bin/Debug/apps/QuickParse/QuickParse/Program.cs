@@ -1,5 +1,6 @@
 ﻿using System;
 
+
 namespace QuickParse
 {
     class Program
@@ -9,5 +10,11 @@ namespace QuickParse
 
             Console.ReadLine();
         }
+    }
+
+    public interface IQDoc
+    {
+        string Path { get; protected set; }
+
     }
 }
