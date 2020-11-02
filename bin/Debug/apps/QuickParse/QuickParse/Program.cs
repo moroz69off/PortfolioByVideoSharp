@@ -16,9 +16,10 @@ namespace QuickParse
         }
     }
 
-    public interface IQDoc
+    interface IQDoc
     {
         string Path { get; set; }
-
+        bool IsHappily { get; }
+        string Result { get; }
     }
 }
