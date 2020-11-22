@@ -5,10 +5,4 @@
     <TargetFramework>netcoreapp3.1</TargetFramework>
   </PropertyGroup>
 
-  <ItemGroup>
-    <Reference Include="ParserCommon">
-      <HintPath>..\..\..\..\..\..\..\..\source\repos\smart_parser\ParserCommon\bin\Debug\netcoreapp3.1\ParserCommon.dll</HintPath>
-    </Reference>
-  </ItemGroup>
-
 </Project>
