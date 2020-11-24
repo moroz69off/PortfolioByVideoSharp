@@ -13,7 +13,7 @@ namespace TextAnalysis
 
             List<string> allx2gramas = new List<string>(Get2gramas(text));
 
-            foreach (var item in allx2gramas)
+            foreach (string item in allx2gramas)
             {
                 if (!frequency.ContainsKey(item))
                     frequency.Add(item, 1);
@@ -23,7 +23,7 @@ namespace TextAnalysis
 
             List<string> allx3gramas = new List<string>(Get3gramas(text));
 
-            foreach (var item in allx3gramas)
+            foreach (string item in allx3gramas)
             {
                 if (!frequency.ContainsKey(item))
                     frequency.Add(item, 1);

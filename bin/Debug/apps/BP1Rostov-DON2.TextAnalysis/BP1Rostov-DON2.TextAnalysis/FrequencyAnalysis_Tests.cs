@@ -34,21 +34,21 @@ namespace TextAnalysis
             AssertResult(expected, actual, text);
         }
 
-        //[Test]
-        //[Order(02)]
-        //public void ReturnCorrectResult_OnTextWithOneSentenceWithTwoWords()
-        //{
-        //    var text = "x y";
-        //    var parsedText = ParseText(text);
-        //    var expected = new Dictionary<string, string>
-        //    {
-        //        {"x", "y"}
-        //    };
+        [Test]
+        [Order(02)]
+        public void ReturnCorrectResult_OnTextWithOneSentenceWithTwoWords()
+        {
+            var text = "x y";
+            var parsedText = ParseText(text);
+            var expected = new Dictionary<string, string>
+            {
+                {"x", "y"}
+            };
 
-        //    var actual = FrequencyAnalysisTask.GetMostFrequentNextWords(parsedText);
+            var actual = FrequencyAnalysisTask.GetMostFrequentNextWords(parsedText);
 
-        //    AssertResult(expected, actual, text);
-        //}
+            AssertResult(expected, actual, text);
+        }
 
         [Test]
         [Order(03)]
