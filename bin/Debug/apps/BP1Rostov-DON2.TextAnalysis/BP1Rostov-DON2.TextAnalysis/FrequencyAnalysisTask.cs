@@ -35,7 +35,6 @@ namespace TextAnalysis
             {
 
             }
-
             return result;
         }
 
@@ -49,9 +48,7 @@ namespace TextAnalysis
                         + item[i + 1] + " "
                         + item[i + 2]);
             }
-
             result.Sort();
-
             return result;
         }
 
