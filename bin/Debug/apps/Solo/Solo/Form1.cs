@@ -2,6 +2,7 @@
 using System.Drawing;
 using System.Windows.Forms;
 using System.IO;
+using System.Text;
 
 namespace Solo
 {
@@ -29,7 +30,7 @@ namespace Solo
         {
             try
             {
-                labelSampleText.Text = File.ReadAllText(textFileName, Encoding.Default);
+                labelSampleText.Text = File.ReadAllText(textFileName, Encoding.UTF8);
             }
 
             catch
@@ -114,6 +115,11 @@ namespace Solo
                 textFileName = openFileDialog.FileName;
                 init();
             }
-        }   
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
     }
 }

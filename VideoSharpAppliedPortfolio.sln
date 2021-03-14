@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MRZVideoTr", "bin\Debug\app
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TextAnalysis", "bin\Debug\apps\BP1Rostov-DON2.TextAnalysis\BP1Rostov-DON2.TextAnalysis\TextAnalysis.csproj", "{E7F5D985-677D-4246-BA75-4BAE24DF38B5}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Solo", "bin\Debug\apps\Solo\Solo\Solo.csproj", "{5438068D-642A-4912-BBD0-F2474CD5C361}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -98,6 +100,12 @@ Global
 		{E7F5D985-677D-4246-BA75-4BAE24DF38B5}.Release|Any CPU.Build.0 = Release|Any CPU
 		{E7F5D985-677D-4246-BA75-4BAE24DF38B5}.Release|x86.ActiveCfg = Release|Any CPU
 		{E7F5D985-677D-4246-BA75-4BAE24DF38B5}.Release|x86.Build.0 = Release|Any CPU
+		{5438068D-642A-4912-BBD0-F2474CD5C361}.Debug|Any CPU.ActiveCfg = Debug|x86
+		{5438068D-642A-4912-BBD0-F2474CD5C361}.Debug|x86.ActiveCfg = Debug|x86
+		{5438068D-642A-4912-BBD0-F2474CD5C361}.Debug|x86.Build.0 = Debug|x86
+		{5438068D-642A-4912-BBD0-F2474CD5C361}.Release|Any CPU.ActiveCfg = Release|x86
+		{5438068D-642A-4912-BBD0-F2474CD5C361}.Release|x86.ActiveCfg = Release|x86
+		{5438068D-642A-4912-BBD0-F2474CD5C361}.Release|x86.Build.0 = Release|x86
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
